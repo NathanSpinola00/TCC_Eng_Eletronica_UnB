@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Jan 15 16:16:32 2026
+# Process ID: 20960
+# Current directory: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1
+# Command line: vivado.exe -log hog_wrapper_auto_pc_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hog_wrapper_auto_pc_1.tcl
+# Log file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1.vds
+# Journal file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1\vivado.jou
+# Running On: DESKTOP-APAIK78, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 25598 MB
+#-----------------------------------------------------------
+source hog_wrapper_auto_pc_1.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 522.758 ; gain = 98.609
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/tcc/nathanzeidan/nathanszeidan_tcc/hog/hog.srcs/sources_1/new'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: hog_wrapper_auto_pc_1
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry f04ea9188c025b15 to dir: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.cache/ip/2022.2/f/0/f04ea9188c025b15/hog_wrapper_auto_pc_0.dcp to D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.cache/ip/2022.2/f/0/f04ea9188c025b15/hog_wrapper_auto_pc_0_sim_netlist.v to D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.cache/ip/2022.2/f/0/f04ea9188c025b15/hog_wrapper_auto_pc_0_sim_netlist.vhdl to D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.cache/ip/2022.2/f/0/f04ea9188c025b15/hog_wrapper_auto_pc_0_stub.v to D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.cache/ip/2022.2/f/0/f04ea9188c025b15/hog_wrapper_auto_pc_0_stub.vhdl to D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_auto_pc_1_synth_1/hog_wrapper_auto_pc_1_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP hog_wrapper_auto_pc_1, cache-ID = f04ea9188c025b15.
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 15 16:16:52 2026...

@@ -1,0 +1,331 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Jan 15 16:13:28 2026
+# Process ID: 8364
+# Current directory: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_hog_ip_axi_Nathan_0_0_synth_1
+# Command line: vivado.exe -log hog_wrapper_hog_ip_axi_Nathan_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hog_wrapper_hog_ip_axi_Nathan_0_0.tcl
+# Log file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_hog_ip_axi_Nathan_0_0_synth_1/hog_wrapper_hog_ip_axi_Nathan_0_0.vds
+# Journal file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_hog_ip_axi_Nathan_0_0_synth_1\vivado.jou
+# Running On: DESKTOP-APAIK78, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 25598 MB
+#-----------------------------------------------------------
+source hog_wrapper_hog_ip_axi_Nathan_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 523.105 ; gain = 103.316
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/tcc/nathanzeidan/nathanszeidan_tcc/hog/hog.srcs/sources_1/new'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: hog_wrapper_hog_ip_axi_Nathan_0_0
+Command: synth_design -top hog_wrapper_hog_ip_axi_Nathan_0_0 -part xck26-sfvc784-2LV-c -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 12224
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1904.562 ; gain = 333.547
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'hog_wrapper_hog_ip_axi_Nathan_0_0' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ip/hog_wrapper_hog_ip_axi_Nathan_0_0/synth/hog_wrapper_hog_ip_axi_Nathan_0_0.vhd:88]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'hog_ip_axi_Nathan' declared at 'd:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_ip_axi_Nathan.vhd:7' bound to instance 'U0' of component 'hog_ip_axi_Nathan' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ip/hog_wrapper_hog_ip_axi_Nathan_0_0/synth/hog_wrapper_hog_ip_axi_Nathan_0_0.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'hog_ip_axi_Nathan' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_ip_axi_Nathan.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'hog_pipeline_link' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_pipeline_link.vhd:33]
+INFO: [Synth 8-638] synthesizing module 'win_cross_taps' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/win_cross_taps.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'win_cross_taps' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/win_cross_taps.vhd:30]
+INFO: [Synth 8-638] synthesizing module 'grad_mag_bin' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/grad_mag_bin.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'grad_mag_bin' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/grad_mag_bin.vhd:46]
+INFO: [Synth 8-638] synthesizing module 'hog_cell_histogram' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_cell_histogram.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'hog_cell_histogram' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_cell_histogram.vhd:28]
+INFO: [Synth 8-638] synthesizing module 'hog_block_assemble' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_block_assemble.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'hog_block_assemble' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_block_assemble.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'block_binarize_v3' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/block_binarize_v3.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'block_binarize_v3' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/block_binarize_v3.vhd:37]
+INFO: [Synth 8-638] synthesizing module 'axis_block_serializer' [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/axis_block_serializer.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'axis_block_serializer' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/axis_block_serializer.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'hog_pipeline_link' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_pipeline_link.vhd:33]
+INFO: [Synth 8-256] done synthesizing module 'hog_ip_axi_Nathan' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_ip_axi_Nathan.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'hog_wrapper_hog_ip_axi_Nathan_0_0' (0#1) [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ip/hog_wrapper_hog_ip_axi_Nathan_0_0/synth/hog_wrapper_hog_ip_axi_Nathan_0_0.vhd:88]
+WARNING: [Synth 8-6014] Unused sequential element a0_reg was removed.  [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/win_cross_taps.vhd:73]
+WARNING: [Synth 8-6014] Unused sequential element c0_reg was removed.  [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/win_cross_taps.vhd:75]
+WARNING: [Synth 8-5863] Implementing Library version of Mod/Rem due to signed path. This typically leads to poor QOR. Check RTL to see if unsigned path for the operator is possible  [d:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.gen/sources_1/bd/hog_wrapper/ipshared/0e7b/hog_block_assemble.vhd:48]
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module hog_ip_axi_Nathan is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2028.684 ; gain = 457.668
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 2028.684 ; gain = 457.668
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 2028.684 ; gain = 457.668
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.176 . Memory (MB): peak = 2028.684 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2102.148 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.254 . Memory (MB): peak = 2120.016 ; gain = 17.867
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 2120.016 ; gain = 549.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 2120.016 ; gain = 549.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 2120.016 ; gain = 549.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:46 . Memory (MB): peak = 2120.016 ; gain = 549.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	  36 Input   25 Bit       Adders := 1     
+	   2 Input   19 Bit       Adders := 1     
+	   4 Input   12 Bit       Adders := 1     
+	   3 Input   11 Bit       Adders := 2     
+	   2 Input   11 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               36 Bit    Registers := 2     
+	               32 Bit    Registers := 6     
+	               19 Bit    Registers := 126   
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 79    
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 28    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 9     
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   19 Bit        Muxes := 45    
+	   4 Input   19 Bit        Muxes := 36    
+	   2 Input   11 Bit        Muxes := 5     
+	   3 Input   11 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 6     
+	   5 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 4     
+	   4 Input    4 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 101   
+	   3 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP U_GMB/bin_var2, operation Mode is: A*(B:0x175).
+DSP Report: operator U_GMB/bin_var2 is absorbed into DSP U_GMB/bin_var2.
+DSP Report: Generating DSP U_GMB/bin_var2, operation Mode is: A*(B:0x2af).
+DSP Report: operator U_GMB/bin_var2 is absorbed into DSP U_GMB/bin_var2.
+DSP Report: Generating DSP U_GMB/bin_var2, operation Mode is: A*(B:0x2ed).
+DSP Report: operator U_GMB/bin_var2 is absorbed into DSP U_GMB/bin_var2.
+DSP Report: Generating DSP U_GMB/bin_var2, operation Mode is: A*(B:0x35b).
+DSP Report: operator U_GMB/bin_var2 is absorbed into DSP U_GMB/bin_var2.
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module hog_ip_axi_Nathan is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module hog_ip_axi_Nathan is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:30 . Memory (MB): peak = 2120.016 ; gain = 549.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name  | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|grad_mag_bin | A*(B:0x175) | 11     | 9      | -      | -      | 20     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*(B:0x2af) | 11     | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*(B:0x2ed) | 11     | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*(B:0x35b) | 11     | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:43 ; elapsed = 00:02:06 . Memory (MB): peak = 2610.441 ; gain = 1039.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:45 ; elapsed = 00:02:07 . Memory (MB): peak = 2610.441 ; gain = 1039.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:48 ; elapsed = 00:02:11 . Memory (MB): peak = 2648.164 ; gain = 1077.148
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:59 ; elapsed = 00:02:22 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:59 ; elapsed = 00:02:22 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:59 ; elapsed = 00:02:23 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:59 ; elapsed = 00:02:23 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:00 ; elapsed = 00:02:23 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:00 ; elapsed = 00:02:23 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name  | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|grad_mag_bin | A*B         | 8      | 9      | -      | -      | 20     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*B         | 8      | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*B         | 8      | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|grad_mag_bin | A*B         | 8      | 10     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |CARRY8          |   173|
+|2     |DSP_ALU         |     4|
+|3     |DSP_A_B_DATA    |     4|
+|4     |DSP_C_DATA      |     4|
+|5     |DSP_MULTIPLIER  |     4|
+|6     |DSP_M_DATA      |     4|
+|7     |DSP_OUTPUT      |     4|
+|8     |DSP_PREADD      |     4|
+|9     |DSP_PREADD_DATA |     4|
+|10    |LUT1            |    17|
+|11    |LUT2            |   146|
+|12    |LUT3            |  1063|
+|13    |LUT4            |  1239|
+|14    |LUT5            |   845|
+|15    |LUT6            |   790|
+|16    |MUXF7           |    64|
+|17    |MUXF8           |    32|
+|18    |FDRE            |  3321|
++------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:00 ; elapsed = 00:02:23 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:38 ; elapsed = 00:02:17 . Memory (MB): peak = 2661.867 ; gain = 999.520
+Synthesis Optimization Complete : Time (s): cpu = 00:02:00 ; elapsed = 00:02:24 . Memory (MB): peak = 2661.867 ; gain = 1090.852
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.265 . Memory (MB): peak = 2674.875 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 273 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2693.758 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 4 instances
+
+Synth Design complete, checksum: 3253d5f0
+INFO: [Common 17-83] Releasing license: Synthesis
+41 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:45 . Memory (MB): peak = 2693.758 ; gain = 2098.750
+INFO: [Common 17-1381] The checkpoint 'D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_hog_ip_axi_Nathan_0_0_synth_1/hog_wrapper_hog_ip_axi_Nathan_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP hog_wrapper_hog_ip_axi_Nathan_0_0, cache-ID = 30e73cca151444ef
+INFO: [Coretcl 2-1174] Renamed 8 cell refs.
+INFO: [Common 17-1381] The checkpoint 'D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_hog_ip_axi_Nathan_0_0_synth_1/hog_wrapper_hog_ip_axi_Nathan_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file hog_wrapper_hog_ip_axi_Nathan_0_0_utilization_synth.rpt -pb hog_wrapper_hog_ip_axi_Nathan_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 15 16:16:47 2026...

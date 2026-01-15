@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Jan 15 16:13:28 2026
+# Process ID: 15124
+# Current directory: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_axi_smc_0_synth_1
+# Command line: vivado.exe -log hog_wrapper_axi_smc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hog_wrapper_axi_smc_0.tcl
+# Log file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_axi_smc_0_synth_1/hog_wrapper_axi_smc_0.vds
+# Journal file: D:/TCC/NathanZeidan/NathanSZeidan_TCC/HOG/HOG.runs/hog_wrapper_axi_smc_0_synth_1\vivado.jou
+# Running On: DESKTOP-APAIK78, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 25598 MB
+#-----------------------------------------------------------
+source hog_wrapper_axi_smc_0.tcl -notrace
