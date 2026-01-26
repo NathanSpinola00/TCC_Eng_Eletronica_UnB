@@ -1,5 +1,3 @@
-Vamos guardar isso e continuar com a análise de adequação do código em relação ao TCC/proposta 3, ok? Antes de fazer qualquer mudança no código gostaria de verificar o resultado final (analisar o resultado visual, ou seja, comparar a imagem de entrada teste que estamos utilizando e o output do descritor de características HOG otimizado para hardware. Com isso em mãos poderei avaliar se o resultado está bom ou não para prosseguimos. Em caso de resultados ruins devemos arrumar essa questão do mapeamento dos bins, pois isso é vital no funcionamento adequado de um HOG). Agora vou enviar outro módulo do nosso HOG feito em HDL e verificar se está em conformidade ou não com a proposta 3/tcc.
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;

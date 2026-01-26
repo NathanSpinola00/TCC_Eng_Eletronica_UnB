@@ -1,9 +1,3 @@
-Para implementar a comunicação AXI4_Stream precisamos usar o TLAST até onde conheço. Fizemos a simulação comportamental e o TLAST estava funcionando exatamente como esperávamos. O sinal TLAST sempre sobe junto do penúltimo pixel e ele desce junto com a subida no frame_done, ou seja, frame_done sobre sincronizado com o último pixel. Portanto, nosso TLAST está sincronizado com o penúltimo pixel, conforme era esperado. 
-Vamos adicionar o AXI4-Lite para controle/ status e como ferramenta de debug.
-Quero que me acompanhe em cada etapa do encapsulamento do IP, na criação do AXI4-Stream.
-
-Abaixo envio meu top_level atual:
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
