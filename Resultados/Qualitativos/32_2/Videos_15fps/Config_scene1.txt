@@ -1,0 +1,5 @@
+CONFIG = {
+    "scene1": {
+        "PSO": {"pop": 10, "iters": 5, "search_r": 13, "Vmax": 4.0, "wMax": 0.9, "wMin": 0.2, "c1": 2.05, "c2": 2.05},
+        "GWO": {"pop": 10, "iters": 5, "search_r": 13},
+    },
