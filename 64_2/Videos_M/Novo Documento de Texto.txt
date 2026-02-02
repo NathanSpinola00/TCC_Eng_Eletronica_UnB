@@ -1,51 +1,51 @@
-TOTAL_PIXELS_IN = 1156
-NUM_WORDS       = 18
-PAD_SIZE inferred = 34
+TOTAL_PIXELS_IN = 4356
+NUM_WORDS       = 98
+PAD_SIZE inferred = 66
 
-== scene1 | PSO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_32_2/results_scene1_PSO ==
-   config: pop=25, iters=5, search_r=12
-
-========================================================================
-Resumo Estatístico | scene1 | PSO | Mean FPS (frames 2..N): 7.63
-========================================================================
-Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
-------------------------------------------------------------------------
-IoU      |   0.326111 |   0.193651 |     0.121987 |   0.349266
-CLE      |  28.621518 |  19.490169 |   893.932207 |  29.898699
-------------------------------------------------------------------------
-
-== scene1 | GWO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_32_2/results_scene1_GWO ==
-   config: pop=25, iters=5, search_r=12
+== scene1 | PSO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_64_2/results_scene1_PSO ==
+   config: pop=12, iters=3, search_r=11
 
 ========================================================================
-Resumo Estatístico | scene1 | GWO | Mean FPS (frames 2..N): 7.59
+Resumo Estatístico | scene1 | PSO | Mean FPS (frames 2..N): 17.65
 ========================================================================
 Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
 ------------------------------------------------------------------------
-IoU      |   0.329954 |   0.105935 |     0.137483 |   0.370787
-CLE      |  24.406092 |  25.355185 |   405.735407 |  20.142875
+IoU      |   0.314940 |   0.101693 |     0.122509 |   0.350013
+CLE      |  39.863553 |  51.570705 |   629.134363 |  25.082551
 ------------------------------------------------------------------------
 
-== scene2 | PSO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_32_2/results_scene2_PSO ==
-   config: pop=30, iters=8, search_r=22
+== scene1 | GWO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_64_2/results_scene1_GWO ==
+   config: pop=12, iters=3, search_r=11
 
 ========================================================================
-Resumo Estatístico | scene2 | PSO | Mean FPS (frames 2..N): 4.24
-========================================================================
-Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
-------------------------------------------------------------------------
-IoU      |   0.463994 |   0.461286 |     0.055510 |   0.235606
-CLE      |  12.121028 |  11.317354 |    81.950734 |   9.052664
-------------------------------------------------------------------------
-
-== scene2 | GWO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_32_2/results_scene2_GWO ==
-   config: pop=50, iters=5, search_r=22
-
-========================================================================
-Resumo Estatístico | scene2 | GWO | Mean FPS (frames 2..N): 4.11
+Resumo Estatístico | scene1 | GWO | Mean FPS (frames 2..N): 17.53
 ========================================================================
 Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
 ------------------------------------------------------------------------
-IoU      |   0.299516 |   0.261675 |     0.064422 |   0.253815
-CLE      |  19.114331 |  17.392999 |   134.511267 |  11.597899
+IoU      |   0.173934 |   0.065964 |     0.049261 |   0.221949
+CLE      |  49.805696 |  57.189564 |   422.190297 |  20.547270
+------------------------------------------------------------------------
+
+== scene2 | PSO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_64_2/results_scene2_PSO ==
+   config: pop=12, iters=3, search_r=11
+
+========================================================================
+Resumo Estatístico | scene2 | PSO | Mean FPS (frames 2..N): 17.22
+========================================================================
+Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
+------------------------------------------------------------------------
+IoU      |   0.221247 |   0.145209 |     0.029052 |   0.170447
+CLE      |  40.240081 |  45.135322 |   174.108732 |  13.195027
+------------------------------------------------------------------------
+
+== scene2 | GWO | N=60 | saving to: /root/jupyter_notebooks/Tracking_Nathan_64_2/results_scene2_GWO ==
+   config: pop=12, iters=3, search_r=11
+
+========================================================================
+Resumo Estatístico | scene2 | GWO | Mean FPS (frames 2..N): 17.09
+========================================================================
+Métrica  |      Média |    Mediana |    Variância |  Desv.Pad.
+------------------------------------------------------------------------
+IoU      |   0.237339 |   0.155090 |     0.030172 |   0.173700
+CLE      |  38.381957 |  44.188108 |   160.214788 |  12.657598
 ------------------------------------------------------------------------
