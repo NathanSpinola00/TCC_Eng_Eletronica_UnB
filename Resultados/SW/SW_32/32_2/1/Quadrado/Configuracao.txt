@@ -1,0 +1,783 @@
+PATCH_SIZE = 32  # <<< MUDE AQUI para 64, 128 etc.
+
+# --------------------------
+# Parâmetros do HOG 
+# --------------------------
+HOG_PARAMS = {
+    "orientations": 9,
+    "pixels_per_cell": (8, 8),
+    "cells_per_block": (2, 2),
+    "block_norm": "L2-Hys",
+}
+
+# --------------------------
+# Parâmetros dos algoritmos 
+# Esses parâmetros podem ser alterados
+# --------------------------
+GWO_PARAMS = {
+    "search_radius": 22.0,
+    "iters": 5,
+    "pop_size": 50,
+}
+
+PSO_PARAMS = {
+    "search_radius": 22.0,
+    "iters": 8,
+    "pop_size": 30,
+    "wMin": 0.4,
+    "wMax": 0.9,
+    "c1": 2.05,   
+    "c2": 2.05,  
+}
+
+FFA_PARAMS = {
+    "search_radius": 22.0,
+    "iters": 5,
+    "pop_size": 50,
+    "gamma": 1.0,
+    "alpha": 0.5,
+    "betamin": 1.0,
+}
+
+###############################
+## GWO: 3 execuções para reprodutibilidade
+###############################
+
+
+>>> GWO - Execução 1/3
+[GWO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[GWO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[GWO] Frame   2 | IoU=0.808 | ErroCentro=2.50 | Custo=0.5985 | Tempo=0.0969 s
+[GWO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.0980 s
+[GWO] Frame   4 | IoU=0.831 | ErroCentro=2.55 | Custo=0.6536 | Tempo=0.0987 s
+[GWO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.0960 s
+[GWO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5800 | Tempo=0.0965 s
+[GWO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.0981 s
+[GWO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.0979 s
+[GWO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.1265 s
+[GWO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.1298 s
+[GWO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.1233 s
+[GWO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.0986 s
+[GWO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.1047 s
+[GWO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.1095 s
+[GWO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.1036 s
+[GWO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.1042 s
+[GWO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.1039 s
+[GWO] Frame  18 | IoU=0.761 | ErroCentro=3.20 | Custo=1.0034 | Tempo=0.1005 s
+[GWO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.1056 s
+[GWO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.1015 s
+[GWO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.1048 s
+[GWO] Frame  22 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7730 | Tempo=0.1077 s
+[GWO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.1124 s
+[GWO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.1395 s
+[GWO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.1066 s
+[GWO] Frame  26 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0100 | Tempo=0.1180 s
+[GWO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.1065 s
+[GWO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.1054 s
+[GWO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.1204 s
+[GWO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.1107 s
+[GWO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.1080 s
+[GWO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.1041 s
+[GWO] Frame  33 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9618 | Tempo=0.1090 s
+[GWO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.1222 s
+[GWO] Frame  35 | IoU=0.739 | ErroCentro=3.61 | Custo=0.9336 | Tempo=0.1173 s
+[GWO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.1279 s
+[GWO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.1166 s
+[GWO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.1004 s
+[GWO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.0989 s
+[GWO] Frame  40 | IoU=0.831 | ErroCentro=2.55 | Custo=1.7320 | Tempo=0.0983 s
+[GWO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.1023 s
+[GWO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.1025 s
+[GWO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.0968 s
+[GWO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.1092 s
+[GWO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.1000 s
+[GWO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.0977 s
+[GWO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.1018 s
+[GWO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0960 s
+[GWO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.1040 s
+[GWO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.0955 s
+[GWO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.1707 s
+[GWO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.1040 s
+[GWO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.1026 s
+[GWO] Frame  54 | IoU=0.832 | ErroCentro=2.24 | Custo=1.1558 | Tempo=0.1192 s
+[GWO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.1174 s
+[GWO] Frame  56 | IoU=0.805 | ErroCentro=3.04 | Custo=1.2598 | Tempo=0.0961 s
+[GWO] Frame  57 | IoU=0.782 | ErroCentro=3.16 | Custo=1.2375 | Tempo=0.1032 s
+[GWO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.0967 s
+[GWO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.1144 s
+[GWO] Frame  60 | IoU=0.782 | ErroCentro=3.16 | Custo=1.3014 | Tempo=0.0997 s
+
+===== RESUMO SIMPLES GWO =====
+IoU médio        : 0.809 ± 0.048
+Erro centro médio: 2.63 px
+FPS médio        : 9.44 frames/s
+
+
+>>> GWO - Execução 2/3
+[GWO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[GWO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[GWO] Frame   2 | IoU=0.808 | ErroCentro=2.50 | Custo=0.5985 | Tempo=0.1003 s
+[GWO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.1133 s
+[GWO] Frame   4 | IoU=0.831 | ErroCentro=2.55 | Custo=0.6536 | Tempo=0.0950 s
+[GWO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.0979 s
+[GWO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5800 | Tempo=0.1006 s
+[GWO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.1057 s
+[GWO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.0965 s
+[GWO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.1077 s
+[GWO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.0980 s
+[GWO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.1038 s
+[GWO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.0996 s
+[GWO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.0978 s
+[GWO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.0967 s
+[GWO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.0987 s
+[GWO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.0975 s
+[GWO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.1006 s
+[GWO] Frame  18 | IoU=0.761 | ErroCentro=3.20 | Custo=1.0034 | Tempo=0.0990 s
+[GWO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.1027 s
+[GWO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.0985 s
+[GWO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.1308 s
+[GWO] Frame  22 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7730 | Tempo=0.0964 s
+[GWO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.0929 s
+[GWO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.0990 s
+[GWO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.1014 s
+[GWO] Frame  26 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0100 | Tempo=0.0989 s
+[GWO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.1012 s
+[GWO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.0995 s
+[GWO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.1054 s
+[GWO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.1076 s
+[GWO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.1112 s
+[GWO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.1014 s
+[GWO] Frame  33 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9618 | Tempo=0.0991 s
+[GWO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.0983 s
+[GWO] Frame  35 | IoU=0.739 | ErroCentro=3.61 | Custo=0.9336 | Tempo=0.1006 s
+[GWO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.0993 s
+[GWO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.1046 s
+[GWO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.1021 s
+[GWO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.1591 s
+[GWO] Frame  40 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2653 | Tempo=0.0933 s
+[GWO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.1031 s
+[GWO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.1010 s
+[GWO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.1017 s
+[GWO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.1096 s
+[GWO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.1009 s
+[GWO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.1014 s
+[GWO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.0978 s
+[GWO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0953 s
+[GWO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.1024 s
+[GWO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.1020 s
+[GWO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.1015 s
+[GWO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.1023 s
+[GWO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.0971 s
+[GWO] Frame  54 | IoU=0.832 | ErroCentro=2.24 | Custo=1.1558 | Tempo=0.1037 s
+[GWO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.0963 s
+[GWO] Frame  56 | IoU=0.805 | ErroCentro=3.04 | Custo=1.2598 | Tempo=0.1077 s
+[GWO] Frame  57 | IoU=0.782 | ErroCentro=3.16 | Custo=1.2375 | Tempo=0.0990 s
+[GWO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.1024 s
+[GWO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.1150 s
+[GWO] Frame  60 | IoU=0.832 | ErroCentro=2.24 | Custo=1.2697 | Tempo=0.1021 s
+
+===== RESUMO SIMPLES GWO =====
+IoU médio        : 0.809 ± 0.048
+Erro centro médio: 2.61 px
+FPS médio        : 9.91 frames/s
+
+
+>>> GWO - Execução 3/3
+[GWO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[GWO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[GWO] Frame   2 | IoU=0.808 | ErroCentro=2.50 | Custo=0.5985 | Tempo=0.1058 s
+[GWO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.0991 s
+[GWO] Frame   4 | IoU=0.831 | ErroCentro=2.55 | Custo=0.6536 | Tempo=0.1033 s
+[GWO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.0980 s
+[GWO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5800 | Tempo=0.1125 s
+[GWO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.1064 s
+[GWO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.0998 s
+[GWO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.1017 s
+[GWO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.1051 s
+[GWO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.0985 s
+[GWO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.1035 s
+[GWO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.1002 s
+[GWO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.0985 s
+[GWO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.0984 s
+[GWO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.1032 s
+[GWO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.0976 s
+[GWO] Frame  18 | IoU=0.761 | ErroCentro=3.20 | Custo=1.0034 | Tempo=0.1085 s
+[GWO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.1078 s
+[GWO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.1025 s
+[GWO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.0976 s
+[GWO] Frame  22 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7730 | Tempo=0.1048 s
+[GWO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.0964 s
+[GWO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.1028 s
+[GWO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.0991 s
+[GWO] Frame  26 | IoU=0.759 | ErroCentro=3.64 | Custo=1.0133 | Tempo=0.0969 s
+[GWO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.0956 s
+[GWO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.0971 s
+[GWO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.1047 s
+[GWO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.1022 s
+[GWO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.1014 s
+[GWO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.0967 s
+[GWO] Frame  33 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9618 | Tempo=0.1012 s
+[GWO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.1023 s
+[GWO] Frame  35 | IoU=0.739 | ErroCentro=3.61 | Custo=0.9336 | Tempo=0.0953 s
+[GWO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.0954 s
+[GWO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.1091 s
+[GWO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.1009 s
+[GWO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.0999 s
+[GWO] Frame  40 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2653 | Tempo=0.0973 s
+[GWO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.1012 s
+[GWO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.1004 s
+[GWO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.1019 s
+[GWO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.0952 s
+[GWO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.1089 s
+[GWO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.1066 s
+[GWO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.1375 s
+[GWO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0979 s
+[GWO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.1008 s
+[GWO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.1124 s
+[GWO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.1023 s
+[GWO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.1010 s
+[GWO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.1102 s
+[GWO] Frame  54 | IoU=0.832 | ErroCentro=2.24 | Custo=1.1558 | Tempo=0.1018 s
+[GWO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.1012 s
+[GWO] Frame  56 | IoU=0.805 | ErroCentro=3.04 | Custo=1.2598 | Tempo=0.0972 s
+[GWO] Frame  57 | IoU=0.782 | ErroCentro=3.16 | Custo=1.2375 | Tempo=0.1024 s
+[GWO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.0959 s
+[GWO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.0935 s
+[GWO] Frame  60 | IoU=0.782 | ErroCentro=3.16 | Custo=1.3014 | Tempo=0.1109 s
+
+===== RESUMO SIMPLES GWO =====
+IoU médio        : 0.808 ± 0.048
+Erro centro médio: 2.64 px
+FPS médio        : 9.96 frames/s
+
+
+===== MÉTRICAS AVANÇADAS (GWO) - EXECUÇÃO 1 =====
+CLE média       : 2.63 px
+CLE mediana     : 2.69 px
+CLE p90         : 3.35 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 9.39
+FPS mínimo      : 5.86
+FPS desvio-padrão: 0.92
+AUC do Success Plot: 0.813
+
+===== MÉTRICAS AVANÇADAS (GWO) - EXECUÇÃO 2 =====
+CLE média       : 2.61 px
+CLE mediana     : 2.62 px
+CLE p90         : 3.35 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 9.81
+FPS mínimo      : 6.29
+FPS desvio-padrão: 0.69
+AUC do Success Plot: 0.814
+
+===== MÉTRICAS AVANÇADAS (GWO) - EXECUÇÃO 3 =====
+CLE média       : 2.64 px
+CLE mediana     : 2.69 px
+CLE p90         : 3.38 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 9.82
+FPS mínimo      : 7.27
+FPS desvio-padrão: 0.54
+AUC do Success Plot: 0.812
+
+===== REPRODUTIBILIDADE (GWO) - 3 EXECUÇÕES =====
+IoU médio (média ± desvio) : 0.809 ± 0.001
+CLE médio (média ± desvio) : 2.63 ± 0.01 px
+FPS médio (média ± desvio) : 9.77 ± 0.24 frames/s
+
+
+###############################
+## PSO: 3 execuções para reprodutibilidade
+###############################
+
+
+>>> PSO - Execução 1/3
+[PSO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[PSO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[PSO] Frame   2 | IoU=0.808 | ErroCentro=2.50 | Custo=0.5985 | Tempo=0.0983 s
+[PSO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.0962 s
+[PSO] Frame   4 | IoU=0.831 | ErroCentro=2.55 | Custo=0.6536 | Tempo=0.1670 s
+[PSO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.0932 s
+[PSO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5800 | Tempo=0.0973 s
+[PSO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.0929 s
+[PSO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.0925 s
+[PSO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.1044 s
+[PSO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.1011 s
+[PSO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.1000 s
+[PSO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.0946 s
+[PSO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.1077 s
+[PSO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.0946 s
+[PSO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.0928 s
+[PSO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.0937 s
+[PSO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.0936 s
+[PSO] Frame  18 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0181 | Tempo=0.0956 s
+[PSO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.0938 s
+[PSO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.0980 s
+[PSO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.1033 s
+[PSO] Frame  22 | IoU=0.737 | ErroCentro=3.81 | Custo=0.9544 | Tempo=0.0939 s
+[PSO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.1305 s
+[PSO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.0961 s
+[PSO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.0978 s
+[PSO] Frame  26 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0100 | Tempo=0.0972 s
+[PSO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.0935 s
+[PSO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.0932 s
+[PSO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.0948 s
+[PSO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.1113 s
+[PSO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.0972 s
+[PSO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.1006 s
+[PSO] Frame  33 | IoU=0.857 | ErroCentro=2.06 | Custo=1.0079 | Tempo=0.0960 s
+[PSO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.0920 s
+[PSO] Frame  35 | IoU=0.739 | ErroCentro=3.61 | Custo=0.9336 | Tempo=0.0925 s
+[PSO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.0978 s
+[PSO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.0966 s
+[PSO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.1010 s
+[PSO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.0999 s
+[PSO] Frame  40 | IoU=0.784 | ErroCentro=2.92 | Custo=1.4338 | Tempo=0.0931 s
+[PSO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.0953 s
+[PSO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.0938 s
+[PSO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.1080 s
+[PSO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.0993 s
+[PSO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.0935 s
+[PSO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.0967 s
+[PSO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.0928 s
+[PSO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0968 s
+[PSO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.0974 s
+[PSO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.1098 s
+[PSO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.0928 s
+[PSO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.1176 s
+[PSO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.1785 s
+[PSO] Frame  54 | IoU=0.782 | ErroCentro=3.16 | Custo=1.1597 | Tempo=0.1054 s
+[PSO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.1120 s
+[PSO] Frame  56 | IoU=0.805 | ErroCentro=3.04 | Custo=1.2598 | Tempo=0.1128 s
+[PSO] Frame  57 | IoU=0.782 | ErroCentro=3.16 | Custo=1.2375 | Tempo=0.1096 s
+[PSO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.1186 s
+[PSO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.1045 s
+[PSO] Frame  60 | IoU=0.832 | ErroCentro=2.24 | Custo=1.2697 | Tempo=0.1314 s
+
+===== RESUMO SIMPLES PSO =====
+IoU médio        : 0.809 ± 0.048
+Erro centro médio: 2.64 px
+FPS médio        : 9.91 frames/s
+
+
+>>> PSO - Execução 2/3
+[PSO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[PSO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[PSO] Frame   2 | IoU=0.857 | ErroCentro=2.06 | Custo=0.7009 | Tempo=0.0989 s
+[PSO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.1586 s
+[PSO] Frame   4 | IoU=0.831 | ErroCentro=2.55 | Custo=0.6536 | Tempo=0.1016 s
+[PSO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.1003 s
+[PSO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=1.0617 | Tempo=0.1216 s
+[PSO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.1143 s
+[PSO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.1013 s
+[PSO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.0983 s
+[PSO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.0969 s
+[PSO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.1079 s
+[PSO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.1183 s
+[PSO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.0954 s
+[PSO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.0940 s
+[PSO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.1470 s
+[PSO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.0935 s
+[PSO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.0929 s
+[PSO] Frame  18 | IoU=0.761 | ErroCentro=3.20 | Custo=1.0034 | Tempo=0.1205 s
+[PSO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.0935 s
+[PSO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.0968 s
+[PSO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.0932 s
+[PSO] Frame  22 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7730 | Tempo=0.0971 s
+[PSO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.0938 s
+[PSO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.0930 s
+[PSO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.1070 s
+[PSO] Frame  26 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0100 | Tempo=0.0928 s
+[PSO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.0924 s
+[PSO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.0919 s
+[PSO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.1015 s
+[PSO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.0934 s
+[PSO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.1029 s
+[PSO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.0967 s
+[PSO] Frame  33 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9618 | Tempo=0.1091 s
+[PSO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.1010 s
+[PSO] Frame  35 | IoU=0.739 | ErroCentro=3.61 | Custo=0.9336 | Tempo=0.0957 s
+[PSO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.0982 s
+[PSO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.0992 s
+[PSO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.0934 s
+[PSO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.0946 s
+[PSO] Frame  40 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2653 | Tempo=0.0942 s
+[PSO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.1103 s
+[PSO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.0941 s
+[PSO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.0929 s
+[PSO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.0939 s
+[PSO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.0926 s
+[PSO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.0925 s
+[PSO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.0931 s
+[PSO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0937 s
+[PSO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.0930 s
+[PSO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.0932 s
+[PSO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.1134 s
+[PSO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.0929 s
+[PSO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.0946 s
+[PSO] Frame  54 | IoU=0.832 | ErroCentro=2.24 | Custo=1.1558 | Tempo=0.0940 s
+[PSO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.0947 s
+[PSO] Frame  56 | IoU=0.805 | ErroCentro=3.04 | Custo=1.2598 | Tempo=0.0959 s
+[PSO] Frame  57 | IoU=0.782 | ErroCentro=3.16 | Custo=1.2375 | Tempo=0.0929 s
+[PSO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.0948 s
+[PSO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.0920 s
+[PSO] Frame  60 | IoU=0.832 | ErroCentro=2.24 | Custo=1.2697 | Tempo=0.0938 s
+
+===== RESUMO SIMPLES PSO =====
+IoU médio        : 0.810 ± 0.048
+Erro centro médio: 2.60 px
+FPS médio        : 10.17 frames/s
+
+
+>>> PSO - Execução 3/3
+[PSO] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[PSO] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[PSO] Frame   2 | IoU=0.808 | ErroCentro=2.50 | Custo=0.5985 | Tempo=0.0938 s
+[PSO] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.0932 s
+[PSO] Frame   4 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7256 | Tempo=0.0945 s
+[PSO] Frame   5 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6613 | Tempo=0.0933 s
+[PSO] Frame   6 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5800 | Tempo=0.0917 s
+[PSO] Frame   7 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8175 | Tempo=0.0926 s
+[PSO] Frame   8 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9571 | Tempo=0.0921 s
+[PSO] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.0957 s
+[PSO] Frame  10 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7439 | Tempo=0.0922 s
+[PSO] Frame  11 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9024 | Tempo=0.0937 s
+[PSO] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=0.8937 | Tempo=0.0926 s
+[PSO] Frame  13 | IoU=0.858 | ErroCentro=1.80 | Custo=0.9324 | Tempo=0.0928 s
+[PSO] Frame  14 | IoU=0.884 | ErroCentro=1.58 | Custo=1.0370 | Tempo=0.0930 s
+[PSO] Frame  15 | IoU=0.884 | ErroCentro=1.58 | Custo=0.6260 | Tempo=0.0934 s
+[PSO] Frame  16 | IoU=0.858 | ErroCentro=1.80 | Custo=0.6920 | Tempo=0.0932 s
+[PSO] Frame  17 | IoU=0.832 | ErroCentro=2.12 | Custo=0.9303 | Tempo=0.0931 s
+[PSO] Frame  18 | IoU=0.761 | ErroCentro=3.20 | Custo=1.0034 | Tempo=0.0922 s
+[PSO] Frame  19 | IoU=0.807 | ErroCentro=2.69 | Custo=0.7366 | Tempo=0.0928 s
+[PSO] Frame  20 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0785 | Tempo=0.1098 s
+[PSO] Frame  21 | IoU=0.857 | ErroCentro=2.06 | Custo=0.9636 | Tempo=0.0937 s
+[PSO] Frame  22 | IoU=0.784 | ErroCentro=2.92 | Custo=0.7730 | Tempo=0.0965 s
+[PSO] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.0924 s
+[PSO] Frame  24 | IoU=0.832 | ErroCentro=2.24 | Custo=1.0648 | Tempo=0.0922 s
+[PSO] Frame  25 | IoU=0.858 | ErroCentro=1.80 | Custo=1.0555 | Tempo=0.0954 s
+[PSO] Frame  26 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0100 | Tempo=0.0920 s
+[PSO] Frame  27 | IoU=0.760 | ErroCentro=3.35 | Custo=0.9383 | Tempo=0.0925 s
+[PSO] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.0934 s
+[PSO] Frame  29 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0287 | Tempo=0.1099 s
+[PSO] Frame  30 | IoU=0.807 | ErroCentro=2.69 | Custo=1.3655 | Tempo=0.1150 s
+[PSO] Frame  31 | IoU=0.784 | ErroCentro=2.92 | Custo=1.1915 | Tempo=0.0921 s
+[PSO] Frame  32 | IoU=0.696 | ErroCentro=4.30 | Custo=0.9699 | Tempo=0.0926 s
+[PSO] Frame  33 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9618 | Tempo=0.0918 s
+[PSO] Frame  34 | IoU=0.784 | ErroCentro=2.83 | Custo=1.0838 | Tempo=0.0941 s
+[PSO] Frame  35 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0081 | Tempo=0.0937 s
+[PSO] Frame  36 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2372 | Tempo=0.0925 s
+[PSO] Frame  37 | IoU=0.761 | ErroCentro=3.20 | Custo=0.9852 | Tempo=0.0911 s
+[PSO] Frame  38 | IoU=0.782 | ErroCentro=3.16 | Custo=1.0295 | Tempo=0.0928 s
+[PSO] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.0916 s
+[PSO] Frame  40 | IoU=0.832 | ErroCentro=2.12 | Custo=1.2653 | Tempo=0.0929 s
+[PSO] Frame  41 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9801 | Tempo=0.0922 s
+[PSO] Frame  42 | IoU=0.832 | ErroCentro=2.24 | Custo=0.9123 | Tempo=0.0929 s
+[PSO] Frame  43 | IoU=0.717 | ErroCentro=4.03 | Custo=1.0812 | Tempo=0.0920 s
+[PSO] Frame  44 | IoU=0.739 | ErroCentro=3.61 | Custo=1.3913 | Tempo=0.0927 s
+[PSO] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2745 | Tempo=0.0956 s
+[PSO] Frame  46 | IoU=0.761 | ErroCentro=3.20 | Custo=1.5493 | Tempo=0.0926 s
+[PSO] Frame  47 | IoU=0.832 | ErroCentro=2.24 | Custo=1.3293 | Tempo=0.0941 s
+[PSO] Frame  48 | IoU=0.829 | ErroCentro=3.00 | Custo=1.2946 | Tempo=0.0938 s
+[PSO] Frame  49 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2193 | Tempo=0.0921 s
+[PSO] Frame  50 | IoU=0.760 | ErroCentro=3.35 | Custo=1.2132 | Tempo=0.0916 s
+[PSO] Frame  51 | IoU=0.807 | ErroCentro=2.69 | Custo=1.1016 | Tempo=0.0928 s
+[PSO] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=1.4189 | Tempo=0.0921 s
+[PSO] Frame  53 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2894 | Tempo=0.0922 s
+[PSO] Frame  54 | IoU=0.832 | ErroCentro=2.24 | Custo=1.1558 | Tempo=0.0935 s
+[PSO] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=1.2821 | Tempo=0.0933 s
+[PSO] Frame  56 | IoU=0.760 | ErroCentro=3.35 | Custo=1.3297 | Tempo=0.0933 s
+[PSO] Frame  57 | IoU=0.739 | ErroCentro=3.61 | Custo=1.2679 | Tempo=0.0968 s
+[PSO] Frame  58 | IoU=0.784 | ErroCentro=2.92 | Custo=1.3952 | Tempo=0.0939 s
+[PSO] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=1.2644 | Tempo=0.0925 s
+[PSO] Frame  60 | IoU=0.832 | ErroCentro=2.24 | Custo=1.2697 | Tempo=0.0921 s
+
+===== RESUMO SIMPLES PSO =====
+IoU médio        : 0.808 ± 0.048
+Erro centro médio: 2.62 px
+FPS médio        : 10.82 frames/s
+
+
+===== MÉTRICAS AVANÇADAS (PSO) - EXECUÇÃO 1 =====
+CLE média       : 2.64 px
+CLE mediana     : 2.69 px
+CLE p90         : 3.38 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 9.91
+FPS mínimo      : 5.60
+FPS desvio-padrão: 1.09
+AUC do Success Plot: 0.813
+
+===== MÉTRICAS AVANÇADAS (PSO) - EXECUÇÃO 2 =====
+CLE média       : 2.60 px
+CLE mediana     : 2.62 px
+CLE p90         : 3.35 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 10.11
+FPS mínimo      : 6.31
+FPS desvio-padrão: 0.96
+AUC do Success Plot: 0.815
+
+===== MÉTRICAS AVANÇADAS (PSO) - EXECUÇÃO 3 =====
+CLE média       : 2.62 px
+CLE mediana     : 2.69 px
+CLE p90         : 3.35 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 10.66
+FPS mínimo      : 8.69
+FPS desvio-padrão: 0.41
+AUC do Success Plot: 0.812
+
+===== REPRODUTIBILIDADE (PSO) - 3 EXECUÇÕES =====
+IoU médio (média ± desvio) : 0.809 ± 0.001
+CLE médio (média ± desvio) : 2.62 ± 0.01 px
+FPS médio (média ± desvio) : 10.30 ± 0.38 frames/s
+
+
+###############################
+## FFA: 3 execuções para reprodutibilidade
+###############################
+
+
+>>> FFA - Execução 1/3
+[FFA] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[FFA] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[FFA] Frame   2 | IoU=0.857 | ErroCentro=2.06 | Custo=1.4121 | Tempo=0.1571 s
+[FFA] Frame   3 | IoU=0.857 | ErroCentro=2.06 | Custo=0.5237 | Tempo=0.1858 s
+[FFA] Frame   4 | IoU=0.461 | ErroCentro=9.62 | Custo=4.6088 | Tempo=0.0849 s
+[FFA] Frame   5 | IoU=0.761 | ErroCentro=3.20 | Custo=1.3219 | Tempo=0.0813 s
+[FFA] Frame   6 | IoU=0.625 | ErroCentro=7.02 | Custo=3.5474 | Tempo=0.0924 s
+[FFA] Frame   7 | IoU=0.675 | ErroCentro=4.92 | Custo=2.3914 | Tempo=0.0885 s
+[FFA] Frame   8 | IoU=0.534 | ErroCentro=7.83 | Custo=3.7479 | Tempo=0.0849 s
+[FFA] Frame   9 | IoU=0.717 | ErroCentro=3.91 | Custo=1.8940 | Tempo=0.0859 s
+[FFA] Frame  10 | IoU=0.584 | ErroCentro=6.52 | Custo=3.3077 | Tempo=0.0846 s
+[FFA] Frame  11 | IoU=0.713 | ErroCentro=4.61 | Custo=2.0162 | Tempo=0.0843 s
+[FFA] Frame  12 | IoU=0.858 | ErroCentro=1.80 | Custo=4.1263 | Tempo=0.0842 s
+[FFA] Frame  13 | IoU=0.589 | ErroCentro=7.57 | Custo=3.7825 | Tempo=0.0891 s
+[FFA] Frame  14 | IoU=0.656 | ErroCentro=5.15 | Custo=3.7395 | Tempo=0.0811 s
+[FFA] Frame  15 | IoU=0.737 | ErroCentro=3.81 | Custo=1.9324 | Tempo=0.0808 s
+[FFA] Frame  16 | IoU=0.855 | ErroCentro=2.50 | Custo=1.5043 | Tempo=0.0813 s
+[FFA] Frame  17 | IoU=0.656 | ErroCentro=5.15 | Custo=2.4790 | Tempo=0.1486 s
+[FFA] Frame  18 | IoU=0.636 | ErroCentro=5.59 | Custo=3.3842 | Tempo=0.2708 s
+[FFA] Frame  19 | IoU=0.603 | ErroCentro=6.02 | Custo=2.5895 | Tempo=0.2739 s
+[FFA] Frame  20 | IoU=0.654 | ErroCentro=5.39 | Custo=2.2133 | Tempo=0.0819 s
+[FFA] Frame  21 | IoU=0.625 | ErroCentro=7.02 | Custo=3.6195 | Tempo=0.0827 s
+[FFA] Frame  22 | IoU=0.831 | ErroCentro=2.55 | Custo=3.6898 | Tempo=0.0816 s
+[FFA] Frame  23 | IoU=0.784 | ErroCentro=2.92 | Custo=0.8681 | Tempo=0.0810 s
+[FFA] Frame  24 | IoU=0.697 | ErroCentro=4.24 | Custo=1.7868 | Tempo=0.0846 s
+[FFA] Frame  25 | IoU=0.675 | ErroCentro=4.92 | Custo=2.4633 | Tempo=0.0805 s
+[FFA] Frame  26 | IoU=0.477 | ErroCentro=9.01 | Custo=3.9804 | Tempo=0.0820 s
+[FFA] Frame  27 | IoU=0.911 | ErroCentro=1.12 | Custo=2.8315 | Tempo=0.1486 s
+[FFA] Frame  28 | IoU=0.808 | ErroCentro=2.50 | Custo=1.0483 | Tempo=0.1045 s
+[FFA] Frame  29 | IoU=0.717 | ErroCentro=3.91 | Custo=1.5578 | Tempo=0.2535 s
+[FFA] Frame  30 | IoU=0.717 | ErroCentro=4.03 | Custo=1.9933 | Tempo=0.0881 s
+[FFA] Frame  31 | IoU=0.832 | ErroCentro=2.12 | Custo=3.2482 | Tempo=0.0902 s
+[FFA] Frame  32 | IoU=0.831 | ErroCentro=2.55 | Custo=1.9463 | Tempo=0.0833 s
+[FFA] Frame  33 | IoU=0.632 | ErroCentro=6.18 | Custo=2.8440 | Tempo=0.0916 s
+[FFA] Frame  34 | IoU=0.832 | ErroCentro=2.24 | Custo=4.4337 | Tempo=0.0834 s
+[FFA] Frame  35 | IoU=0.657 | ErroCentro=5.00 | Custo=1.7285 | Tempo=0.0925 s
+[FFA] Frame  36 | IoU=0.512 | ErroCentro=8.86 | Custo=4.7373 | Tempo=0.1663 s
+[FFA] Frame  37 | IoU=0.638 | ErroCentro=5.41 | Custo=2.4274 | Tempo=0.0929 s
+[FFA] Frame  38 | IoU=0.739 | ErroCentro=3.61 | Custo=1.1758 | Tempo=0.2989 s
+[FFA] Frame  39 | IoU=0.857 | ErroCentro=2.06 | Custo=4.5317 | Tempo=0.0989 s
+[FFA] Frame  40 | IoU=0.831 | ErroCentro=2.55 | Custo=4.5162 | Tempo=0.0970 s
+[FFA] Frame  41 | IoU=0.969 | ErroCentro=0.50 | Custo=3.6325 | Tempo=0.1041 s
+[FFA] Frame  42 | IoU=0.657 | ErroCentro=5.00 | Custo=1.8180 | Tempo=0.1282 s
+[FFA] Frame  43 | IoU=0.676 | ErroCentro=4.72 | Custo=4.9581 | Tempo=0.0978 s
+[FFA] Frame  44 | IoU=0.609 | ErroCentro=7.07 | Custo=4.2186 | Tempo=0.0971 s
+[FFA] Frame  45 | IoU=0.710 | ErroCentro=5.02 | Custo=2.6849 | Tempo=0.1035 s
+[FFA] Frame  46 | IoU=0.507 | ErroCentro=8.14 | Custo=4.3452 | Tempo=0.1040 s
+[FFA] Frame  47 | IoU=0.578 | ErroCentro=7.28 | Custo=4.1517 | Tempo=0.1553 s
+[FFA] Frame  48 | IoU=0.784 | ErroCentro=2.83 | Custo=1.7867 | Tempo=0.1808 s
+[FFA] Frame  49 | IoU=0.673 | ErroCentro=5.22 | Custo=3.4706 | Tempo=0.1021 s
+[FFA] Frame  50 | IoU=0.805 | ErroCentro=3.04 | Custo=1.5641 | Tempo=0.1175 s
+[FFA] Frame  51 | IoU=0.670 | ErroCentro=5.59 | Custo=3.0066 | Tempo=0.1070 s
+[FFA] Frame  52 | IoU=0.807 | ErroCentro=2.69 | Custo=2.1901 | Tempo=0.2798 s
+[FFA] Frame  53 | IoU=0.550 | ErroCentro=7.38 | Custo=3.7547 | Tempo=0.0966 s
+[FFA] Frame  54 | IoU=1.000 | ErroCentro=0.00 | Custo=3.3577 | Tempo=0.0899 s
+[FFA] Frame  55 | IoU=0.645 | ErroCentro=6.52 | Custo=3.4662 | Tempo=0.0829 s
+[FFA] Frame  56 | IoU=0.857 | ErroCentro=2.06 | Custo=1.4538 | Tempo=0.1126 s
+[FFA] Frame  57 | IoU=0.619 | ErroCentro=5.83 | Custo=3.3904 | Tempo=0.0815 s
+[FFA] Frame  58 | IoU=0.584 | ErroCentro=6.52 | Custo=3.3185 | Tempo=0.0877 s
+[FFA] Frame  59 | IoU=0.688 | ErroCentro=5.52 | Custo=3.0994 | Tempo=0.0816 s
+[FFA] Frame  60 | IoU=0.736 | ErroCentro=4.12 | Custo=1.9085 | Tempo=0.0807 s
+
+===== RESUMO SIMPLES FFA =====
+IoU médio        : 0.713 ± 0.124
+Erro centro médio: 4.54 px
+FPS médio        : 8.83 frames/s
+
+
+>>> FFA - Execução 2/3
+[FFA] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[FFA] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[FFA] Frame   2 | IoU=0.534 | ErroCentro=7.83 | Custo=3.7930 | Tempo=0.0822 s
+[FFA] Frame   3 | IoU=0.636 | ErroCentro=5.59 | Custo=2.3747 | Tempo=0.1073 s
+[FFA] Frame   4 | IoU=0.688 | ErroCentro=5.52 | Custo=2.2590 | Tempo=0.0817 s
+[FFA] Frame   5 | IoU=0.761 | ErroCentro=3.20 | Custo=2.9486 | Tempo=0.0824 s
+[FFA] Frame   6 | IoU=0.565 | ErroCentro=7.16 | Custo=5.2150 | Tempo=0.0978 s
+[FFA] Frame   7 | IoU=0.670 | ErroCentro=5.59 | Custo=3.6445 | Tempo=0.0829 s
+[FFA] Frame   8 | IoU=0.666 | ErroCentro=6.02 | Custo=3.2292 | Tempo=0.0818 s
+[FFA] Frame   9 | IoU=0.857 | ErroCentro=2.06 | Custo=0.6776 | Tempo=0.0876 s
+[FFA] Frame  10 | IoU=0.652 | ErroCentro=5.70 | Custo=3.0624 | Tempo=0.0982 s
+[FFA] Frame  11 | IoU=0.675 | ErroCentro=4.92 | Custo=2.0797 | Tempo=0.0845 s
+[FFA] Frame  12 | IoU=0.857 | ErroCentro=2.06 | Custo=4.5229 | Tempo=0.0922 s
+[FFA] Frame  13 | IoU=0.807 | ErroCentro=2.69 | Custo=4.9865 | Tempo=0.2494 s
+[FFA] Frame  14 | IoU=0.940 | ErroCentro=0.71 | Custo=3.7463 | Tempo=0.0812 s
+[FFA] Frame  15 | IoU=0.645 | ErroCentro=6.52 | Custo=4.9357 | Tempo=0.0849 s
+[FFA] Frame  16 | IoU=0.507 | ErroCentro=8.14 | Custo=4.8448 | Tempo=0.0986 s
+[FFA] Frame  17 | IoU=0.831 | ErroCentro=2.55 | Custo=2.5042 | Tempo=0.0843 s
+[FFA] Frame  18 | IoU=0.807 | ErroCentro=2.69 | Custo=1.0181 | Tempo=0.2439 s
+[FFA] Frame  19 | IoU=0.473 | ErroCentro=9.39 | Custo=4.9192 | Tempo=0.0813 s
+[FFA] Frame  20 | IoU=0.578 | ErroCentro=7.28 | Custo=3.3405 | Tempo=0.0926 s
+[FFA] Frame  21 | IoU=0.666 | ErroCentro=6.02 | Custo=3.1137 | Tempo=0.0809 s
+[FFA] Frame  22 | IoU=0.694 | ErroCentro=4.74 | Custo=3.4077 | Tempo=0.0803 s
+[FFA] Frame  23 | IoU=0.656 | ErroCentro=5.15 | Custo=2.4330 | Tempo=0.0905 s
+[FFA] Frame  24 | IoU=0.782 | ErroCentro=3.16 | Custo=3.2040 | Tempo=0.0819 s
+[FFA] Frame  25 | IoU=0.717 | ErroCentro=4.03 | Custo=3.3884 | Tempo=0.1057 s
+[FFA] Frame  26 | IoU=0.516 | ErroCentro=9.55 | Custo=4.4710 | Tempo=0.1448 s
+[FFA] Frame  27 | IoU=0.715 | ErroCentro=4.27 | Custo=3.5393 | Tempo=0.1092 s
+[FFA] Frame  28 | IoU=0.911 | ErroCentro=1.12 | Custo=2.6361 | Tempo=0.0830 s
+[FFA] Frame  29 | IoU=0.911 | ErroCentro=1.12 | Custo=3.3489 | Tempo=0.1039 s
+[FFA] Frame  30 | IoU=0.759 | ErroCentro=3.64 | Custo=2.8479 | Tempo=0.0838 s
+[FFA] Frame  31 | IoU=0.545 | ErroCentro=7.91 | Custo=4.7155 | Tempo=0.0806 s
+[FFA] Frame  32 | IoU=0.080 | ErroCentro=26.88 | Custo=5.1543 | Tempo=0.0980 s
+[FFA] Frame  33 | IoU=0.636 | ErroCentro=5.59 | Custo=3.5760 | Tempo=0.0782 s
+[FFA] Frame  34 | IoU=0.832 | ErroCentro=2.24 | Custo=2.6620 | Tempo=0.1570 s
+[FFA] Frame  35 | IoU=0.684 | ErroCentro=6.00 | Custo=3.2168 | Tempo=0.1000 s
+[FFA] Frame  36 | IoU=0.737 | ErroCentro=3.81 | Custo=2.2490 | Tempo=0.0831 s
+[FFA] Frame  37 | IoU=0.593 | ErroCentro=7.16 | Custo=4.8619 | Tempo=0.0822 s
+[FFA] Frame  38 | IoU=0.829 | ErroCentro=3.00 | Custo=1.4089 | Tempo=0.1805 s
+[FFA] Frame  39 | IoU=0.808 | ErroCentro=2.50 | Custo=0.9885 | Tempo=0.1024 s
+[FFA] Frame  40 | IoU=0.737 | ErroCentro=3.81 | Custo=3.2946 | Tempo=0.0840 s
+[FFA] Frame  41 | IoU=0.857 | ErroCentro=2.06 | Custo=5.0714 | Tempo=0.1219 s
+[FFA] Frame  42 | IoU=0.654 | ErroCentro=5.39 | Custo=2.1233 | Tempo=0.0828 s
+[FFA] Frame  43 | IoU=0.969 | ErroCentro=0.50 | Custo=4.0052 | Tempo=0.0821 s
+[FFA] Frame  44 | IoU=0.832 | ErroCentro=2.24 | Custo=1.6971 | Tempo=0.0970 s
+[FFA] Frame  45 | IoU=0.602 | ErroCentro=6.10 | Custo=2.6629 | Tempo=0.0844 s
+[FFA] Frame  46 | IoU=0.713 | ErroCentro=4.61 | Custo=3.4010 | Tempo=0.0991 s
+[FFA] Frame  47 | IoU=0.619 | ErroCentro=5.83 | Custo=3.8986 | Tempo=0.0820 s
+[FFA] Frame  48 | IoU=0.695 | ErroCentro=4.47 | Custo=1.9342 | Tempo=0.0809 s
+[FFA] Frame  49 | IoU=0.673 | ErroCentro=5.22 | Custo=3.4706 | Tempo=0.0921 s
+[FFA] Frame  50 | IoU=0.638 | ErroCentro=5.32 | Custo=4.4115 | Tempo=0.0817 s
+[FFA] Frame  51 | IoU=0.504 | ErroCentro=8.50 | Custo=4.9810 | Tempo=0.0804 s
+[FFA] Frame  52 | IoU=0.560 | ErroCentro=7.76 | Custo=4.0155 | Tempo=0.2130 s
+[FFA] Frame  53 | IoU=0.605 | ErroCentro=7.52 | Custo=4.1481 | Tempo=0.2230 s
+[FFA] Frame  54 | IoU=0.697 | ErroCentro=4.24 | Custo=3.3573 | Tempo=0.1002 s
+[FFA] Frame  55 | IoU=0.620 | ErroCentro=5.70 | Custo=2.4750 | Tempo=0.2243 s
+[FFA] Frame  56 | IoU=0.760 | ErroCentro=3.35 | Custo=2.1928 | Tempo=0.1131 s
+[FFA] Frame  57 | IoU=0.695 | ErroCentro=4.47 | Custo=3.0525 | Tempo=0.1031 s
+[FFA] Frame  58 | IoU=0.612 | ErroCentro=6.67 | Custo=4.2482 | Tempo=0.0815 s
+[FFA] Frame  59 | IoU=0.737 | ErroCentro=3.81 | Custo=1.4772 | Tempo=0.1500 s
+[FFA] Frame  60 | IoU=0.736 | ErroCentro=4.12 | Custo=3.8377 | Tempo=0.1042 s
+
+===== RESUMO SIMPLES FFA =====
+IoU médio        : 0.696 ± 0.143
+Erro centro médio: 5.09 px
+FPS médio        : 9.52 frames/s
+
+
+>>> FFA - Execução 3/3
+[FFA] Frame 1: inicialização com GT, IoU=1.000, ErroCentro=0.00
+[FFA] Frame   1 | IoU=1.000 | ErroCentro=0.00 | Custo=0.0000 | Tempo=0.0000 s
+[FFA] Frame   2 | IoU=0.858 | ErroCentro=1.80 | Custo=1.8020 | Tempo=0.0813 s
+[FFA] Frame   3 | IoU=0.563 | ErroCentro=7.43 | Custo=3.5309 | Tempo=0.0821 s
+[FFA] Frame   4 | IoU=0.940 | ErroCentro=0.71 | Custo=3.4212 | Tempo=0.0918 s
+[FFA] Frame   5 | IoU=0.547 | ErroCentro=9.01 | Custo=4.7475 | Tempo=0.0823 s
+[FFA] Frame   6 | IoU=0.673 | ErroCentro=5.22 | Custo=2.2215 | Tempo=0.2459 s
+[FFA] Frame   7 | IoU=0.858 | ErroCentro=1.80 | Custo=2.2215 | Tempo=0.1020 s
+[FFA] Frame   8 | IoU=0.537 | ErroCentro=7.43 | Custo=5.0871 | Tempo=0.0946 s
+[FFA] Frame   9 | IoU=0.808 | ErroCentro=2.50 | Custo=1.9463 | Tempo=0.0822 s
+[FFA] Frame  10 | IoU=0.652 | ErroCentro=5.70 | Custo=2.7908 | Tempo=0.1790 s
+[FFA] Frame  11 | IoU=0.717 | ErroCentro=3.91 | Custo=1.3537 | Tempo=0.2477 s
+[FFA] Frame  12 | IoU=0.808 | ErroCentro=2.50 | Custo=0.8980 | Tempo=0.0809 s
+[FFA] Frame  13 | IoU=0.593 | ErroCentro=7.16 | Custo=4.5616 | Tempo=0.0945 s
+[FFA] Frame  14 | IoU=0.780 | ErroCentro=3.54 | Custo=1.8907 | Tempo=0.0820 s
+[FFA] Frame  15 | IoU=0.696 | ErroCentro=4.30 | Custo=1.7164 | Tempo=0.0808 s
+[FFA] Frame  16 | IoU=0.910 | ErroCentro=1.50 | Custo=1.1408 | Tempo=0.0807 s
+[FFA] Frame  17 | IoU=0.831 | ErroCentro=2.55 | Custo=1.2141 | Tempo=0.0813 s
+[FFA] Frame  18 | IoU=0.717 | ErroCentro=4.03 | Custo=2.8731 | Tempo=0.2408 s
+[FFA] Frame  19 | IoU=0.552 | ErroCentro=8.56 | Custo=3.7731 | Tempo=0.0842 s
+[FFA] Frame  20 | IoU=0.657 | ErroCentro=5.00 | Custo=4.1685 | Tempo=0.0969 s
+[FFA] Frame  21 | IoU=0.603 | ErroCentro=6.02 | Custo=3.4831 | Tempo=0.1114 s
+[FFA] Frame  22 | IoU=0.733 | ErroCentro=4.53 | Custo=4.4136 | Tempo=0.0814 s
+[FFA] Frame  23 | IoU=0.581 | ErroCentro=6.96 | Custo=2.7661 | Tempo=0.0903 s
+[FFA] Frame  24 | IoU=0.739 | ErroCentro=3.61 | Custo=1.2643 | Tempo=0.1747 s
+[FFA] Frame  25 | IoU=0.761 | ErroCentro=3.20 | Custo=1.2643 | Tempo=0.2091 s
+[FFA] Frame  26 | IoU=0.536 | ErroCentro=7.50 | Custo=3.9404 | Tempo=0.1285 s
+[FFA] Frame  27 | IoU=0.104 | ErroCentro=25.40 | Custo=4.6562 | Tempo=0.2271 s
+[FFA] Frame  28 | IoU=0.506 | ErroCentro=8.20 | Custo=4.5415 | Tempo=0.0813 s
+[FFA] Frame  29 | IoU=0.858 | ErroCentro=1.80 | Custo=4.5088 | Tempo=0.0949 s
+[FFA] Frame  30 | IoU=0.552 | ErroCentro=8.56 | Custo=4.3140 | Tempo=0.0814 s
+[FFA] Frame  31 | IoU=0.696 | ErroCentro=4.30 | Custo=4.1732 | Tempo=0.0816 s
+[FFA] Frame  32 | IoU=0.688 | ErroCentro=5.52 | Custo=2.4564 | Tempo=0.0941 s
+[FFA] Frame  33 | IoU=0.534 | ErroCentro=7.83 | Custo=4.5885 | Tempo=0.2320 s
+[FFA] Frame  34 | IoU=0.552 | ErroCentro=7.21 | Custo=3.2033 | Tempo=0.0822 s
+[FFA] Frame  35 | IoU=0.609 | ErroCentro=7.07 | Custo=3.3972 | Tempo=0.1080 s
+[FFA] Frame  36 | IoU=0.940 | ErroCentro=0.71 | Custo=4.2186 | Tempo=0.0983 s
+[FFA] Frame  37 | IoU=0.969 | ErroCentro=0.50 | Custo=3.3198 | Tempo=0.0800 s
+[FFA] Frame  38 | IoU=0.739 | ErroCentro=3.61 | Custo=3.0532 | Tempo=0.0814 s
+[FFA] Frame  39 | IoU=0.670 | ErroCentro=5.59 | Custo=3.4887 | Tempo=0.0805 s
+[FFA] Frame  40 | IoU=0.581 | ErroCentro=6.96 | Custo=4.2154 | Tempo=0.0808 s
+[FFA] Frame  41 | IoU=0.675 | ErroCentro=4.92 | Custo=2.8282 | Tempo=0.1534 s
+[FFA] Frame  42 | IoU=0.619 | ErroCentro=5.83 | Custo=2.3047 | Tempo=0.0851 s
+[FFA] Frame  43 | IoU=0.601 | ErroCentro=6.26 | Custo=2.3114 | Tempo=0.0803 s
+[FFA] Frame  44 | IoU=0.736 | ErroCentro=4.12 | Custo=1.7629 | Tempo=0.2248 s
+[FFA] Frame  45 | IoU=0.760 | ErroCentro=3.35 | Custo=2.5699 | Tempo=0.0930 s
+[FFA] Frame  46 | IoU=0.531 | ErroCentro=8.08 | Custo=5.1849 | Tempo=0.0807 s
+[FFA] Frame  47 | IoU=0.782 | ErroCentro=3.16 | Custo=1.4725 | Tempo=0.1063 s
+[FFA] Frame  48 | IoU=0.784 | ErroCentro=2.83 | Custo=1.7867 | Tempo=0.0781 s
+[FFA] Frame  49 | IoU=0.911 | ErroCentro=1.12 | Custo=3.1883 | Tempo=0.0817 s
+[FFA] Frame  50 | IoU=0.717 | ErroCentro=3.91 | Custo=1.3712 | Tempo=0.0926 s
+[FFA] Frame  51 | IoU=0.675 | ErroCentro=4.92 | Custo=2.1549 | Tempo=0.0807 s
+[FFA] Frame  52 | IoU=0.531 | ErroCentro=8.08 | Custo=4.2265 | Tempo=0.1048 s
+[FFA] Frame  53 | IoU=0.831 | ErroCentro=2.55 | Custo=2.7619 | Tempo=0.0817 s
+[FFA] Frame  54 | IoU=0.691 | ErroCentro=5.10 | Custo=2.6750 | Tempo=0.0818 s
+[FFA] Frame  55 | IoU=0.737 | ErroCentro=3.81 | Custo=3.0256 | Tempo=0.0907 s
+[FFA] Frame  56 | IoU=0.636 | ErroCentro=5.59 | Custo=3.6376 | Tempo=0.0801 s
+[FFA] Frame  57 | IoU=0.784 | ErroCentro=2.83 | Custo=3.4994 | Tempo=0.1058 s
+[FFA] Frame  58 | IoU=0.694 | ErroCentro=4.74 | Custo=2.1952 | Tempo=0.0812 s
+[FFA] Frame  59 | IoU=0.784 | ErroCentro=2.92 | Custo=2.5865 | Tempo=0.0849 s
+[FFA] Frame  60 | IoU=0.585 | ErroCentro=6.40 | Custo=4.0753 | Tempo=0.0859 s
+
+===== RESUMO SIMPLES FFA =====
+IoU médio        : 0.695 ± 0.146
+Erro centro médio: 5.00 px
+FPS médio        : 9.28 frames/s
+
+
+===== MÉTRICAS AVANÇADAS (FFA) - EXECUÇÃO 1 =====
+CLE média       : 4.54 px
+CLE mediana     : 4.82 px
+CLE p90         : 7.40 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 9.91
+FPS mínimo      : 3.35
+FPS desvio-padrão: 2.70
+AUC do Success Plot: 0.716
+
+===== MÉTRICAS AVANÇADAS (FFA) - EXECUÇÃO 2 =====
+CLE média       : 5.09 px
+CLE mediana     : 4.83 px
+CLE p90         : 7.83 px
+Nº de falhas (IoU < 0.10): 1
+FPS médio       : 10.30
+FPS mínimo      : 4.01
+FPS desvio-padrão: 2.45
+AUC do Success Plot: 0.698
+
+===== MÉTRICAS AVANÇADAS (FFA) - EXECUÇÃO 3 =====
+CLE média       : 5.00 px
+CLE mediana     : 4.64 px
+CLE p90         : 8.08 px
+Nº de falhas (IoU < 0.10): 0
+FPS médio       : 10.33
+FPS mínimo      : 4.04
+FPS desvio-padrão: 2.74
+AUC do Success Plot: 0.696
+
+===== REPRODUTIBILIDADE (FFA) - 3 EXECUÇÕES =====
+IoU médio (média ± desvio) : 0.701 ± 0.008
+CLE médio (média ± desvio) : 4.88 ± 0.24 px
+FPS médio (média ± desvio) : 9.21 ± 0.29 frames/s
