@@ -1,0 +1,90 @@
+
+\subsubsection{Cálculo dos Gradientes}
+\label{subsubsec: Cálculo_Gradientes}
+
+Dado um patch de imagem em escala de cinza \( I(x, y) \), os componentes do gradiente horizontal \(G_x\) e vertical \(G_y\) são obtidos por diferenças centradas de primeira ordem, conforme
+
+\begin{equation}
+G_x(x, y) = I(x + 1, y) - I(x - 1, y)
+\end{equation}
+
+\begin{equation}
+G_y(x, y) = I(x, y + 1) - I(x, y - 1).
+\end{equation}
+
+A partir desses componentes, são calculadas a magnitude do gradiente \(M(x, y)\) e a orientação \(\theta(x, y)\), dadas por
+
+\begin{equation}
+M(x, y) = \sqrt{G_x^2(x, y) + G_y^2(x, y)}
+\end{equation}
+
+\begin{equation}
+\theta(x, y) = \arctan\left(\frac{G_y(x, y)}{G_x(x, y)}\right).
+\end{equation}
+
+As orientações são restringidas ao intervalo \([0, \pi)\), caracterizando um descritor não orientado, no qual gradientes em direções opostas são considerados equivalentes.
+
+\subsubsection{Histograma de Orientações por Célula}
+
+O patch é dividido em células quadradas de \(8 \times 8\) pixels. Para cada célula \(c\), é construído um histograma de orientações \(h_c\) com \(B = 9\) compartimentos (\textit{bins}), correspondendo a uma resolução angular de
+
+\begin{equation}
+\Delta \theta = \frac{\pi}{9}.
+\end{equation}
+
+Cada pixel da célula contribui para os dois \textit{bins} adjacentes à sua orientação \(\theta(x, y)\), utilizando interpolação linear, de modo que a contribuição ponderada pela magnitude seja dada por
+
+\begin{equation}
+h_c(b) \leftarrow h_c(b) + w_b \cdot M(x, y),
+\end{equation}
+
+onde \(w_b\) representa o peso associado ao \textit{bin} \(b\), proporcional à distância angular entre \(\theta(x, y)\) e o centro do compartimento considerado.
+
+\subsubsection{Construção e Normalização dos Blocos}
+
+As células são agrupadas em blocos compostos por \(2 \times 2\) células adjacentes, resultando em um vetor de características por bloco
+
+\begin{equation}
+\mathbf{v}_b = 
+\begin{bmatrix}
+h_{c_1} & h_{c_2} & h_{c_3} & h_{c_4}
+\end{bmatrix},
+\end{equation}
+
+onde cada \(h_{c_i} \in \mathbb{R}^9\), totalizando \(36\) componentes por bloco.
+
+A normalização do vetor do bloco é realizada utilizando o esquema \textit{L2-Hys}. Inicialmente, aplica-se a normalização L2 clássica
+
+\begin{equation}
+\mathbf{v}_b^{(1)} = \frac{\mathbf{v}_b}{\sqrt{\lVert \mathbf{v}_b \rVert_2^2 + \varepsilon^2}},
+\end{equation}
+
+onde \(\varepsilon\) é uma constante pequena utilizada para evitar instabilidade numérica.
+
+Em seguida, os valores do vetor são limitados por um limiar \(\tau\), tipicamente \(\tau = 0.2\), conforme
+
+\begin{equation}
+\mathbf{v}_b^{(2)} = \min(\mathbf{v}_b^{(1)}, \tau).
+\end{equation}
+
+Por fim, é aplicada uma segunda normalização L2, resultando no vetor normalizado final do bloco
+
+\begin{equation}
+\mathbf{v}_b^{\text{Hys}} = \frac{\mathbf{v}_b^{(2)}}{\sqrt{\lVert \mathbf{v}_b^{(2)} \rVert_2^2 + \varepsilon^2}}.
+\end{equation}
+
+\subsubsection{Vetor HOG Final}
+
+O descritor HOG final é obtido pela concatenação dos vetores normalizados de todos os blocos do patch, formando um vetor de características de alta dimensão
+
+\begin{equation}
+\mathbf{H} =
+\begin{bmatrix}
+\mathbf{v}_{b_1}^{\text{Hys}} &
+\mathbf{v}_{b_2}^{\text{Hys}} &
+\cdots &
+\mathbf{v}_{b_N}^{\text{Hys}}
+\end{bmatrix}.
+\end{equation}
+
+Esse vetor \(\mathbf{H}\) constitui a representação de aparência do objeto utilizada no processo de rastreamento, sendo empregado diretamente na função de custo baseada na distância euclidiana quadrática para comparação entre diferentes hipóteses de localização.
