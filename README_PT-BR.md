@@ -4,7 +4,7 @@
 
 Sistemas de robótica, vigilância e automação frequentemente precisam rastrear objetos em tempo real a partir de imagens. Entretanto, plataformas embarcadas possuem limitações de processamento, energia e latência, o que dificulta executar algoritmos de visão computacional complexos apenas em CPU ou GPU.
 
-Assim, surge o desafio de desenvolver um **sistema de rastreamento visual eficiente que opere em tempo real em hardware embarcado**.
+Assim, surge o desafio de desenvolver um **sistema de rastreamento visual eficiente que opere em tempo real em hardware embarcado**, dispensando o uso de técnicas que necessitem de treinamento prévio.
 
 ---
 
@@ -12,7 +12,7 @@ Assim, surge o desafio de desenvolver um **sistema de rastreamento visual eficie
 
 Este projeto implementa um sistema de rastreamento visual utilizando uma abordagem de **coprojeto hardware/software em SoC FPGA**.
 
-A extração de características visuais é acelerada em hardware por meio de um descritor **Histogram of Oriented Gradients (HOG)** implementado em FPGA. O rastreamento é formulado como um **problema de otimização bidimensional**, resolvido por algoritmos bioinspirados executados no processador ARM.
+A extração de características visuais é acelerada em hardware por meio de um descritor de características **Histogram of Oriented Gradients (HOG)**, que se trata de uma técnica de visão computacional, implementado em FPGA. O rastreamento é formulado como um **problema de otimização bidimensional**, resolvido por algoritmos bioinspirados executados no processador ARM.
 
 A comunicação entre hardware e software é realizada utilizando **AXI-Stream e DMA**, permitindo processamento eficiente em tempo real.
 
